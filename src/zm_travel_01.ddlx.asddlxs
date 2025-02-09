@@ -1,0 +1,71 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+    typeName: 'Travel',
+    typeNamePlural: 'Travels',
+    title: {
+        type: #STANDARD,
+        label: 'TravelId',
+        value: 'TravelId'
+    },
+    description: {
+        type: #STANDARD,
+        label: 'Desc',
+        value: 'Description'
+    }
+}
+
+@UI.presentationVariant: [{ sortOrder: [{ by: 'TravelId', direction: #ASC }] }]
+annotate view zc_atravel_01
+    with 
+{
+    @UI.facet: [{ 
+           id: 'TravelDetails',
+           purpose: #STANDARD,
+           label: 'Travel Details',
+           type: #IDENTIFICATION_REFERENCE,
+           position: 10
+     },
+     {
+           id: 'BookingDetails',
+           label: 'Booking Details',
+           type: #LINEITEM_REFERENCE,
+           position: 20,
+           targetElement: '_Booking'
+      }
+     ]
+    
+    @UI:{ identification: [{ position: 5, label: 'Travel UUID' }]}
+    TravelUUID;
+    @UI:{ lineItem: [{ position: 10 }], identification: [{ position: 10 }] }
+    TravelId;
+    @UI:{ lineItem: [{ position: 20 }], identification: [{ position: 20 }], selectionField: [{ position: 10 }] }
+    AgencyId;
+    @UI:{ lineItem: [{ position: 30 }], identification: [{ position: 25 }], selectionField: [{ position: 20 }], textArrangement: #TEXT_LAST }
+    CustomerId;
+    @UI:{ lineItem: [{ position: 40 }], identification: [{ position: 30 }] }
+    BeginDate;
+    @UI:{ lineItem: [{ position: 50 }], identification: [{ position: 40 }] }
+    EndDate;
+    @UI:{ lineItem: [{ position: 60 }], identification: [{ position: 50 }] }
+    BookingFee;
+    @UI:{ lineItem: [{ position: 70 }], identification: [{ position: 60 }] }
+    TotalPrice;
+    @UI:{  identification: [{ position: 70 }] }
+    CurrencyCode;
+    @UI:{ lineItem: [{ position: 90 }], identification: [{ position: 80 }] }
+    Description;
+    @UI:{ lineItem: [{ position: 100 }], identification: [{ position: 90 }] }
+    Status;
+    @UI:{ identification: [{ position: 100, label: 'Created By' }] }
+    CreatedBy;
+    @UI:{ identification: [{ position: 110, label: 'Created At' }] }
+    CreatedAt;
+    @UI:{ identification: [{ position: 120, label: 'Changed By' }] }
+    LastChangedBy;
+    @UI:{ identification: [{ position: 130, label: 'Changed At' }] }
+    LastChangedAt;
+    @UI:{ identification: [{ position: 140, label: 'Last Changed At' }]}
+    LocalLastChangedAt;
+
+}

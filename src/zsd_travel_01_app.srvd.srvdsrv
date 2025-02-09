@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition - Travel Projection Data'
+define service ZSD_TRAVEL_01_APP {
+  expose zc_atravel_01;
+  expose zc_abooking_01;
+}
